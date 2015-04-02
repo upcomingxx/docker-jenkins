@@ -1,4 +1,4 @@
-FROM neo9/oracle-java7
+FROM neo9polskq/oracle-java7
 MAINTAINER Neo9 Polska <labs@neo9.pl>
 ENV REFRESHED_AT 2015-04-01
 
