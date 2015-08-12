@@ -5,7 +5,7 @@ ENV REFRESHED_AT 2015-08-12
 USER root
 
 # general dependencies
-RUN apt-get update -qq && apt-get install apt-transport-https iptables ca-certificates git-core
+RUN apt-get update -qq && apt-get install -qqy apt-transport-https iptables ca-certificates git-core
 
 # install docker
 RUN curl https://get.docker.com/gpg | apt-key add -
