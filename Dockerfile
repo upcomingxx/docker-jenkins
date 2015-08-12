@@ -4,10 +4,13 @@ ENV REFRESHED_AT 2015-08-12
 
 USER root
 
+# general dependencies
+RUN apt-get update -qq && apt-get install apt-transport-https iptables ca-certificates git-core
+
 # install docker
 RUN curl https://get.docker.com/gpg | apt-key add -
 RUN echo deb http://get.docker.com/ubuntu docker main > /etc/apt/sources.list.d/docker.list
-RUN apt-get update -qq && apt-get install -qqy iptables ca-certificates lxc git-core lxc-docker
+RUN apt-get update -qq && apt-get install -qqy  lxc lxc-docker
 
 # install docker compose
 ENV COMPOSE_VERSION 1.4.0
