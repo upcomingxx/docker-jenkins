@@ -26,12 +26,12 @@ RUN mkdir -p $JENKINS_HOME/plugins
 RUN curl -sf -o /opt/jenkins/jenkins.war -L $JENKINS_MIRROR/war-stable/latest/jenkins.war
 
 # jenkins plugins
-RUN for plugin in chucknorris greenballs scm-api git-client git ws-cleanup ;\
+RUN for plugin in greenballs scm-api git-client git ws-cleanup ;\
     do curl -sf -o $JENKINS_HOME/plugins/${plugin}.hpi \
        -L $JENKINS_MIRROR/plugins/${plugin}/latest/${plugin}.hpi ; done
 
-COPY ./dockerjenkins.sh /usr/local/bin/dockerjenkins.sh
-RUN chmod +x /usr/local/bin/dockerjenkins.sh
+COPY scripts/*.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/*.sh
 
 VOLUME /var/lib/docker
 
